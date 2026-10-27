@@ -3,15 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>webシステム構築基礎　第二回課題</title>
+    <title>webシステム構築基礎　第三回課題</title>
 </head>
-<body>
+<h1>BMI指標計算</h1>
+    <form oninput="bmi.value = Math.round(Number(weight.value) / Math.pow(Number(height.value) / 100, 2) * 10) / 10">
+        <p>
+            <label>体重（kg）：
+                <input name="weight" type="number" step="any" min="0">
+            </label>
+        </p>
+        <p>
+            <label>身長（cm）：
+                <input name="height" type="number" step="any" min="0">
+            </label>
+        </p>
+        <p>
+            <label>BMI：
+                <output name="bmi"></output>
+            </label>
+        </p>
+    </form>
+
+    <hr>
+
+    <h2>計算方法を選べる計算機</h2>
+    <form onsubmit="return false">
+        <input type="number" id="num01"> 演算
+        <input type="number" id="num02"> =
+        <output id="result0"></output>
+        <p>
+            <input id="plus" type="radio" name="cal0" value="+" checked>
+            <label for="plus">足す</label>
+
+            <input id="minus" type="radio" name="cal0" value="-">
+            <label for="minus">引く</label>
+
+            <input id="multiply" type="radio" name="cal0" value="*">
+            <label for="multiply">掛ける</label>
+
+            <input id="divide" type="radio" name="cal0" value="/">
+            <label for="divide">割る</label>
+        </p>
+        <button type="button" onclick="
+            result0.value =
+                (cal0[0].checked) ? Number(num01.value) + Number(num02.value) :
+                (cal0[1].checked) ? Number(num01.value) - Number(num02.value) :
+                (cal0[2].checked) ? Number(num01.value) * Number(num02.value) :
+                (cal0[3].checked) ? Number(num01.value) / Number(num02.value) :
+                NaN;
+        ">計算</button>
+    </form>
+
+    <h2><b>おすすめの旅行先</b></h2>
     <img src="https://tse3.mm.bing.net/th/id/OIP.7LSP3cS-EdkPeK07GVnv0gHaD4?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" width="300" height="200" alt="風景写真">
     <br>
-    <h2><b>おすすめの旅行先</b></h2>
     <h3>ドイツ</h3>
     <p>様々なビールを味わうことができて、ビール好きには天国です。</p>
     <br>
-    <li><a href="index.html">1ページ目へ</a></li>
+    <ul>
+        <li><a href="index.html">1ページ目へ</a></li>
+    </ul>
 </body>
 </html>
